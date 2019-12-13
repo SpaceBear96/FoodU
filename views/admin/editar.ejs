@@ -1,0 +1,56 @@
+<form action="/admin/insert" method="post" enctype="multipart/form-data">
+  <input type="hidden" value="<%=datos.ID%>" name="ID" />
+  <div class="form-group">
+    <label for="Name">Nombre del Prodcuto</label>
+    <input
+      type="text"
+      class="form-control"
+      name="Nombre"
+      placeholder=""
+      value="<%=datos.Name%>"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="Descripcion">Descripcion</label>
+    <textarea
+      class="form-control"
+      rows="3"
+      name="Descripcion"
+      value="<%=datos.Description%>"
+    ></textarea>
+  </div>
+  <div class="form-group">
+    <label for="Precio">Precio</label>
+    <input
+      type="number"
+      class="form-control"
+      name="Precio"
+      placeholder=""
+      step=".01"
+      value="<%=datos.Price%>"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="Stock">Stock</label>
+    <input
+      type="number"
+      class="form-control"
+      name="Stock"
+      placeholder=""
+      value="<%=datos.Stock%>"
+      min="1"
+      pattern="^[0-9]+"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="File">Imagen</label>
+    <input type="file" class="form-control-file" name="Documento" />
+  </div>
+  <input type="hidden" name="Image" value="<%=datos.Image%>" />
+  <input type="hidden" name="Status" value="<%=datos.Status%>" />
+
+  <input type="submit" value="Registrar" class="btn center btn-success" />
+</form>

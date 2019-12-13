@@ -1,0 +1,84 @@
+<div class="container">
+  <%if(datos == ""){%>
+  <div class="alert alert-warning" role="alert">
+    No tienes has terminado ordenes!
+  </div>
+  <%}else{%> <% datos.forEach((e)=>{ %>
+  <div
+    class="card text-white bg-danger"
+    style="width: 15rem;float: left; margin-right: 1rem;"
+  >
+    <img
+      src="https://s3.us-east-2.amazonaws.com/foodu.food/Comida/<%=e.food.Image%>"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h4 class="card-text"><%=e.food.Name%></h4>
+      <p style="color:white;">
+        Para <b><%=e.user.Name%> <%=e.user.LastName%></b> a entregar
+        en
+        <b><%=e.place.Name%></b>
+      </p>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Verificar
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Verificar Ordenes</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form method="post" action="/admin/verificar">
+          <input type="hidden" name="ID" value="<%=e.ID%>" />
+          <div class="modal-body">
+            <label for="Codigo">Ingrese el codigo</label>
+            <input
+              type="text"
+              class="form-control"
+              name="Code"
+              placeholder="Codigo"
+              required
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary">Verificar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <% }); %> <%}%>
+</div>

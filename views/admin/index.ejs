@@ -7,11 +7,13 @@
   <%}else{%>
   
     <% datos.forEach((e)=>{ %>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+        <div class="card" style="width: 15rem; float:left;margin-right: 1rem;">
+            <img src="https://s3.us-east-2.amazonaws.com/foodu.food/Comida/<%=e.Image%>"  style="height: 10rem;width: 15rem;" class="card-img-top" alt="...">
             <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h4 class="card-text"><%=e.Name%></h4>
+              <p style="height: 4rem;"><%=e.Description%></p>
             </div>
+            <a class="btn btn-info" href="/admin/food/view/<%=e.ID%>">Editar</a>
         </div>
     <% }); %>
     

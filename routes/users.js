@@ -4,15 +4,17 @@ var index = require("../config/index");
 var router = express.Router();
 
 /* GET users listing. */
+
 router.post("/register", (req, res) => {
   const { name, lsname, email, uni, pass } = req.body;
+  console.log("Nuestro usuario es ", uni);
   data = {
     Name: name,
     LastName: lsname,
-    Role: 1,
+    Role: { Role: 1 },
     Email: email,
     Password: pass,
-    University: parseInt(uni)
+    University: { University: uni }
   };
   path = index.url + "/users/create";
   axios
@@ -22,7 +24,7 @@ router.post("/register", (req, res) => {
       index.datos.id = rs.data.ID;
       index.datos.uni_id = res.data.Universities_ID;
       console.log(index.token);
-        res.redirect("/admin");  
+      res.redirect("/admin");
     })
     .catch(error => {
       console.log(error);
@@ -41,17 +43,17 @@ router.post("/login", (req, res) => {
   axios
     .post(path, data)
     .then(rs => {
-      if(rs.data.Token === undefined){
+      if (rs.data.Token === undefined) {
         console.log(rs.data.message);
         var men = rs.data.message;
-        res.redirect("/login?msg="+men+"");
-      }else{
-        if(rs.data.Role == 2){
+        res.redirect("/login?msg=" + men + "");
+      } else {
+        if (rs.data.Role == 2) {
           var men = "Administrador solo para vendedores";
-          res.redirect("/login?msg="+men+"");
-        }else{  
-          console.log("Token es :",rs.data.Token);
-          console.log("ID es :",rs.data.ID);
+          res.redirect("/login?msg=" + men + "");
+        } else {
+          console.log("Token es :", rs.data.Token);
+          console.log("ID es :", rs.data.ID);
           console.log(rs.data);
           index.datos.token = rs.data.Token;
           index.datos.id = rs.data.ID;

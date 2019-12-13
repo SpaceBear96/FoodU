@@ -1,0 +1,23 @@
+<div class="container">
+    <%if(datos == ""){%>
+    <div class="alert alert-warning" role="alert">
+      No tienes ninguna orden pendiente!
+    </div>
+    <%}else{%> <% datos.forEach((e)=>{ %>
+    <div class="card text-white bg-dark" style="width: 15rem;">
+      <img
+        src="https://s3.us-east-2.amazonaws.com/foodu.food/Comida/<%=e.food.Image%>"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h4 class="card-text"><%=e.food.Name%></h4>
+        <p style="color:white;">
+          Para <b><%=e.user.Name%> <%=e.user.LastName%></b> a entregar en
+          <b><%=e.place.Name%></b>
+        </p>
+      </div>
+    </div>
+    <% }); %> <%}%>
+  </div>
+  
