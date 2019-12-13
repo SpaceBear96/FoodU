@@ -3,6 +3,7 @@ module.exports = {
     // url: "http://localhost:3000",
     datos:{
         id:0,
-        token:""
+        token:"",
+        uni_id:0
     }
 }

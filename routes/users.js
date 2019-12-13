@@ -5,11 +5,11 @@ var router = express.Router();
 
 /* GET users listing. */
 router.post("/register", (req, res) => {
-  const { name, lsname, email, uni, rol, pass } = req.body;
+  const { name, lsname, email, uni, pass } = req.body;
   data = {
     Name: name,
     LastName: lsname,
-    Role: parseInt(rol),
+    Role: 1,
     Email: email,
     Password: pass,
     University: parseInt(uni)
@@ -18,8 +18,11 @@ router.post("/register", (req, res) => {
   axios
     .post(path, data)
     .then(rs => {
-      console.log(rs);
-      res.render("menu");
+      index.datos.token = rs.data.Token;
+      index.datos.id = rs.data.ID;
+      index.datos.uni_id = res.data.Universities_ID;
+      console.log(index.token);
+        res.redirect("/admin");  
     })
     .catch(error => {
       console.log(error);
@@ -28,6 +31,7 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
+  console.log(req.body);
   data = {
     Email: email,
     Password: password
@@ -42,9 +46,18 @@ router.post("/login", (req, res) => {
         var men = rs.data.message;
         res.redirect("/login?msg="+men+"");
       }else{
-        index.token = rs.data.Token;
-        console.log(index.token);
-        res.redirect("/menu");  
+        if(rs.data.Role == 2){
+          var men = "Administrador solo para vendedores";
+          res.redirect("/login?msg="+men+"");
+        }else{  
+          console.log("Token es :",rs.data.Token);
+          console.log("ID es :",rs.data.ID);
+          console.log(rs.data);
+          index.datos.token = rs.data.Token;
+          index.datos.id = rs.data.ID;
+          index.datos.uni_id = rs.data.Universities_ID;
+          res.redirect("/admin");
+        }
       }
     })
     .catch(error => {
