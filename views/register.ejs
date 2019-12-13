@@ -1,0 +1,292 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <title>
+      Tasty Burger Restaurants Category Bootstrap Responsive Web Template |
+      Register Page :: W3layouts
+    </title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta
+      name="keywords"
+      content="Tasty Burger Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+    />
+    <script>
+      addEventListener(
+        "load",
+        function() {
+          setTimeout(hideURLbar, 0);
+        },
+        false
+      );
+
+      function hideURLbar() {
+        window.scrollTo(0, 1);
+      }
+    </script>
+    <!--// Meta tag Keywords -->
+
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //Custom-Files -->
+
+    <!-- Web-Fonts -->
+    <link
+      href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Barlow+Semi+Condensed:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+    <!-- //Web-Fonts -->
+  </head>
+
+  <body>
+    <%- include('layouts/navbar') %>
+
+    <!-- banner -->
+    <div class="main-banner-2"></div>
+    <!-- //banner -->
+    <!-- page details -->
+    <div class="breadcrumb-agile bg-light py-2">
+      <ol class="breadcrumb bg-light m-0">
+        <li class="breadcrumb-item">
+          <a href="/">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Registro</li>
+      </ol>
+    </div>
+    <!-- //page details -->
+
+    <!-- login -->
+    <div class="login-contect py-5">
+      <div class="container py-xl-5 py-3">
+        <div class="login-body">
+          <div class="login p-4 mx-auto">
+            <h5 class="text-center mb-4">Registrarse ahora!</h5>
+            <form action="/users/register" method="post">
+              <div class="form-group">
+                <label>Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <label>Apellido</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="lsname"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <label>Universidad</label>
+                <select class="browser-default custom-select" name="uni">
+                  <option selected>Selecciona tu universidad</option>
+                  <% data.forEach((e)=>{ %>
+                  <option value="<%=e.ID%>"><%=e.Name%></option>
+                  <% }); %>
+                </select>
+              </div>
+              <hr />
+              <div class="form-group">
+                <label class="radio-inline">¿Como deseas registrarte? | </label>
+                <label class="radio-inline">
+                  <input id="inlineradio1" name="rol" value="1" type="radio" />
+                  Vendedor</label
+                >
+
+                <label class="radio-inline">
+                  <input id="inlineradio2" name="rol" value="2" type="radio" />
+                  Cliente</label
+                >
+              </div>
+              <hr />
+              <div class="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+              <div class="form-group">
+                <label class="mb-2">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="pass"
+                  id="password1"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+              <button type="submit" class="btn submit mb-4">Registrar</button>
+              <p class="text-center">
+                <a href="#" class="text-da"
+                  >Al registrarte aceptas nuestros terminos.</a
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //login -->
+
+    <!-- footer -->
+    <footer class="py-5">
+      <div class="container py-xl-4">
+        <div class="row footer-top">
+          <div class="col-lg-4 footer-grid_section_1its footer-text">
+            <!-- logo -->
+            <h2>
+              <a class="logo text-wh" href="index.html">
+                <img src="images/logo.png" alt="" class="img-fluid" /><span
+                  >Tasty</span
+                >
+                Burger
+              </a>
+            </h2>
+            <!-- //logo -->
+            <p class="mt-lg-4 mt-3 mb-lg-5 mb-4">
+              Sed ut perspiciatis unde omnis iste natus errorhjhsit lupt atem
+              accursit lupt atem accu dfdsa ntium doloremque laudan tium accu
+              santium dolore.
+            </p>
+            <!-- social icons -->
+            <ul class="top-right-info">
+              <li>
+                <p>Follow As:</p>
+              </li>
+              <li class="facebook-w3">
+                <a href="#facebbok">
+                  <span class="fa fa-facebook-f"></span>
+                </a>
+              </li>
+              <li class="twitter-w3">
+                <a href="#twitter">
+                  <span class="fa fa-twitter"></span>
+                </a>
+              </li>
+              <li class="google-w3">
+                <a href="#google">
+                  <span class="fa fa-google-plus"></span>
+                </a>
+              </li>
+              <li class="dribble-w3">
+                <a href="#dribble">
+                  <span class="fa fa-dribbble"></span>
+                </a>
+              </li>
+            </ul>
+            <!-- //social icons -->
+          </div>
+          <div class="col-lg-4 footer-grid_section_1its my-lg-0 my-sm-4 my-4">
+            <div class="footer-title">
+              <h3>Contact Us</h3>
+            </div>
+            <div class="footer-text mt-4">
+              <p>
+                Address : 1234 lock, Charlotte, North Carolina, United States
+              </p>
+              <p class="my-2">Phone : +12 534894364</p>
+              <p>
+                Email : <a href="mailto:info@example.com">info@example.com</a>
+              </p>
+            </div>
+            <div class="footer-title mt-4 pt-md-2">
+              <h3>Payment Method</h3>
+            </div>
+            <ul class="list-unstyled payment-links mt-4">
+              <li>
+                <a href="login.html"><img src="images/pay2.png" alt=""/></a>
+              </li>
+              <li>
+                <a href="login.html"><img src="images/pay5.png" alt=""/></a>
+              </li>
+              <li>
+                <a href="login.html"><img src="images/pay1.png" alt=""/></a>
+              </li>
+              <li>
+                <a href="login.html"><img src="images/pay4.png" alt=""/></a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 footer-grid_section_1its">
+            <div class="footer-title">
+              <h3>Request Info</h3>
+            </div>
+            <div class="info-form-right mt-4 p-0">
+              <form action="#" method="post">
+                <div class="row">
+                  <div class="col-lg-6 form-group mb-2 pr-lg-1">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Name"
+                      placeholder="Name"
+                      required=""
+                    />
+                  </div>
+                  <div class="col-lg-6 form-group mb-2 pl-lg-1">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Phone"
+                      placeholder="Phone"
+                      required=""
+                    />
+                  </div>
+                </div>
+                <div class="form-group mb-2">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="Email"
+                    placeholder="Email"
+                    required=""
+                  />
+                </div>
+                <div class="form-group mb-2">
+                  <textarea
+                    name="Comment"
+                    class="form-control"
+                    placeholder="Comment"
+                    required=""
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn submit-contact ml-auto">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- //footer -->
+  </body>
+</html>
